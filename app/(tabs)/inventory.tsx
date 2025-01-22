@@ -4,32 +4,8 @@ import { useState } from 'react';
 import {Link} from 'expo-router';
 import CameraPage from '../Components/CameraPage';
 export default function Inventory() {
-  const [active, setActive] = useState<CameraView | boolean >(true);
-  const activeString = active.toString();
-  function closeCamera() {
-    setActive(false);
-    console.log("onClose!")
-  }
-  function openCamera() {
-    setActive(true);
-    console.log("Camera opened!")
-  }
-
-
-
   return (
     <View style={styles.container}>
-      {
-        active ? (
-          <CameraPage onCloseCamera={closeCamera}></CameraPage> 
-        ) :
-        <View>
-          <Text style={styles.text}>Blank render because active is: {activeString}</Text>
-          <Pressable onPress={openCamera}>
-            <Text style={styles.text}>Open Camera</Text>
-          </Pressable>
-        </View>
-      }
     </View>
   );
 }

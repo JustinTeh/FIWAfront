@@ -1,7 +1,7 @@
-import { CameraView, CameraType, useCameraPermissions, Camera } from 'expo-camera';
+import { CameraView, CameraType, useCameraPermissions, BarcodeSettings, CameraViewRef } from 'expo-camera';
 import { Link, Stack, useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { Button, Text, View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+import { Button, Text, View, StyleSheet, TouchableOpacity, Pressable, BaseBackgroundPropType } from 'react-native';
 
 type Props = {
     onCloseCamera: () => void;
@@ -40,6 +40,10 @@ export default function CameraPage({onCloseCamera} : Props) {
         );
     } 
     
+    const scannableBarcodes: BarcodeSettings = {
+      barcodeTypes: ['aztec', 'ean13', 'ean8', 'qr', 'pdf417', 'upc_e', 'datamatrix', 'code39', 'code93','itf14', 'codabar', 'code128', 'upc_a'],
+    }
+      
     return (
         <>
             <CameraView style={styles.camera} facing={facing}>
@@ -64,7 +68,6 @@ export default function CameraPage({onCloseCamera} : Props) {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: '#25292e',
       // alignItems: 'center',
       // justifyContent: 'center',
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       backgroundColor: 'transparent',
-      margin: 64,
+      margin: 20,
     },
     button: {
       fontSize: 20,
@@ -92,9 +95,9 @@ const styles = StyleSheet.create({
     },
     message: {
       textAlign: 'center',
-      paddingBottom: 10,
+      //paddingBottom: 10,
     },
     camera: {
-      flex: 1,
+      height: "50%",
     }
 })
