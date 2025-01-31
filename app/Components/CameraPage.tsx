@@ -1,7 +1,7 @@
 import { CameraView, CameraType, useCameraPermissions, BarcodeSettings, CameraViewRef } from 'expo-camera';
 import { Link, Stack, useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { Button, Text, View, StyleSheet, TouchableOpacity, Pressable, BaseBackgroundPropType } from 'react-native';
+import { Button, Text, View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
 
 type Props = {
     onCloseCamera: () => void;
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
       //paddingBottom: 10,
     },
     camera: {
-      height: "50%",
+      height: "100%",
     }
 })

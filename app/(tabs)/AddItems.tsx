@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { CameraView } from 'expo-camera';
 import CameraPage from '../Components/CameraPage';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import ManualAdd from '../Components/ManualAdd';
 export default function AddItems() {
 
     const [active, setActive] = useState<CameraView | boolean >(true);
@@ -43,8 +44,8 @@ export default function AddItems() {
 
             {/* Scrollable List of Scanned Items */}
             <View style={styles.scrollableContainer}>
-              <Text style={styles.textPrimary}>Insert list of items here</Text>
-
+              {/* <Text style={styles.textPrimary}>Insert list of items here</Text> */}
+              <ManualAdd></ManualAdd>
 
             </View>
 
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     flex: 2,
     maxHeight: "100%",
     maxWidth: "100%",
+    alignItems: 'center'
   },
   buttonContainer: {
     flex: 1,
